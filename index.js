@@ -3,6 +3,7 @@ const ZERO = 'O';
 const EMPTY = ' ';
 let turn = 0;
 let field = []
+let dimension = 3;
 
 const container = document.getElementById('fieldWrapper');
 
@@ -10,8 +11,7 @@ startGame();
 addResetListener();
 
 function startGame () {
-    renderGrid(3);
-    dimension = 3;
+    renderGrid(dimension);
     for (let i = 0; i < dimension; i++) {
         field[i] = [];
         for (let j = 0; j < dimension; j++) {
@@ -40,7 +40,6 @@ function renderGrid (dimension) {
 }
 
 function cellClickHandler (row, col) {
-    // Пиши код тут
     console.log(`Clicked on cell: ${row}, ${col}`);
     if(field[row][col] != EMPTY){
         return;
@@ -76,6 +75,7 @@ function addResetListener () {
 
 function resetClickHandler () {
     console.log('reset!');
+    turn = 0;
     let dim = field.length;
     for (let i = 0; i < dim; i++){
         for(let j = 0; j < dim; j++){
