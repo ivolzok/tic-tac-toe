@@ -53,6 +53,9 @@ function cellClickHandler (row, col) {
         field[row][col] = CROSS;
     }
     turn += 1;
+    if (turn == dimension * dimension){
+        alert("Победила Дружба!")
+    }
 }
 
 function renderSymbolInCell (symbol, row, col, color = '#333') {
