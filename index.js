@@ -12,7 +12,6 @@ addResetListener();
 
 function startGame () {
     renderGrid(dimension);
-    turn = 0;
     for (let i = 0; i < dimension; i++) {
         field[i] = [];
         for (let j = 0; j < dimension; j++) {
@@ -45,7 +44,7 @@ function cellClickHandler (row, col) {
     if(field[row][col] != EMPTY){
         return;
     }
-    if (turn == 1){
+    if (turn % 2 == 1){
         renderSymbolInCell(ZERO, row, col);
         field[row][col] = ZERO;
     }
@@ -54,7 +53,6 @@ function cellClickHandler (row, col) {
         field[row][col] = CROSS;
     }
     turn += 1;
-    turn %= 2;
 }
 
 function renderSymbolInCell (symbol, row, col, color = '#333') {
