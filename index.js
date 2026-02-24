@@ -3,7 +3,7 @@ const ZERO = 'O';
 const EMPTY = ' ';
 let turn = 0;
 dimension = 3;
-let field = []
+let field = [];
 
 const container = document.getElementById('fieldWrapper');
 
