@@ -21,24 +21,25 @@ function startGame () {
 }
 
 function CheckWinner(){
-    for (const row = 0; row < length(field); row++){
+    for (let row = 0; row < dimension; row++){
         startCell = field[row][0]
-        win = True
-        for (const col = 1; col < length(field); col++){
-            if (field[row][col] !== startCell)
-                win = False
+        win = true
+        for (let col = 1; col < dimension; col++){
+            if (field[row][col] !== startCell){
+                win = false
                 break
+            }
         if (win)
             return startCell
         }
     }
 
-    for (const col = 0; col < length(field);col++){
+    for (let col = 0; col < dimension;col++){
         startCell = field[0][col]
-        win = True
-        for (const row = 1; row<length(field); row++){
+        win = true
+        for (let row = 1; row<dimension; row++){
             if (field[row][col] !== startCell){
-                win = False
+                win = false
                 break
             }
         }
@@ -47,28 +48,28 @@ function CheckWinner(){
     }
 
     startCell = field[0][0]
-    win = True
-    for (const i = 1; i<length(field); i++){
+    win = true
+    for (let i = 1; i<dimension; i++){
         if (field[i][i] !== startCell){
-            win = False
+            win = false
             break
         }
     }
     if (win)
             return startCell
 
-    startCell = field[length[field] - 1][0]
-    win = True
-    for (const i = 0; i<length(field); i++){
-        if (field[length[field] - 1 - i][i] !== startCell){
-            win = False
+    startCell = field[dimension - 1][0]
+    win = true
+    for (let i = 0; i<dimension; i++){
+        if (field[dimension - 1 - i][i] !== startCell){
+            win = false
             break
         }
     }
     if (win)
         return startCell
 
-    return Empty
+    return EMPTY
 }
 
 function renderGrid (dimension) {
@@ -100,6 +101,10 @@ function cellClickHandler (row, col) {
         field[row][col] = CROSS;
     }
     turn += 1;
+    let winner = CheckWinner()
+    if (winner != EMPTY)
+        alert(winner)
+
     if (turn == dimension * dimension){
         alert("Победила Дружба!")
     }
