@@ -1,6 +1,7 @@
 const CROSS = 'X';
 const ZERO = 'O';
 const EMPTY = ' ';
+const FIELD = [[EMPTY, EMPTY, EMPTY], [EMPTY, EMPTY, EMPTY], [EMPTY, EMPTY, EMPTY]]
 
 const container = document.getElementById('fieldWrapper');
 
@@ -9,6 +10,10 @@ addResetListener();
 
 function startGame () {
     renderGrid(3);
+}
+
+function CheckWinner(){
+    
 }
 
 function renderGrid (dimension) {
