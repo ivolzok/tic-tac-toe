@@ -2,8 +2,8 @@ const CROSS = 'X';
 const ZERO = 'O';
 const EMPTY = ' ';
 let turn = 0;
+dimension = 3;
 let field = []
-let dimension = 3;
 
 const container = document.getElementById('fieldWrapper');
 
@@ -12,6 +12,7 @@ addResetListener();
 
 function startGame () {
     renderGrid(dimension);
+    turn = 0;
     for (let i = 0; i < dimension; i++) {
         field[i] = [];
         for (let j = 0; j < dimension; j++) {
