@@ -21,7 +21,54 @@ function startGame () {
 }
 
 function CheckWinner(){
-    
+    for (const row = 0; row < length(field); row++){
+        startCell = field[row][0]
+        win = True
+        for (const col = 1; col < length(field); col++){
+            if (field[row][col] !== startCell)
+                win = False
+                break
+        if (win)
+            return startCell
+        }
+    }
+
+    for (const col = 0; col < length(field);col++){
+        startCell = field[0][col]
+        win = True
+        for (const row = 1; row<length(field); row++){
+            if (field[row][col] !== startCell){
+                win = False
+                break
+            }
+        }
+        if (win)
+            return startCell
+    }
+
+    startCell = field[0][0]
+    win = True
+    for (const i = 1; i<length(field); i++){
+        if (field[i][i] !== startCell){
+            win = False
+            break
+        }
+    }
+    if (win)
+            return startCell
+
+    startCell = field[length[field] - 1][0]
+    win = True
+    for (const i = 0; i<length(field); i++){
+        if (field[length[field] - 1 - i][i] !== startCell){
+            win = False
+            break
+        }
+    }
+    if (win)
+        return startCell
+
+    return Empty
 }
 
 function renderGrid (dimension) {
